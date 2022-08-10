@@ -1,15 +1,16 @@
-package UC3;
+package UC4;
 
 import java.util.Scanner;
 
 public class LineComparison {
-    static void checkComparison(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4) {
-        Double length1 = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
-        System.out.println("Length Of First Line : " + length1);
-
-        Double length2 = Math.sqrt((x4 - x3) * (x4 - x3) + (y4 - y3) * (y4 - y3));
-        System.out.println("Length Of Second Line : " + length2);
-
+    public void equalsMethod(Double length1, Double length2) {
+        if (length1.equals(length2)) {
+            System.out.println("Both the lines are equal");
+        } else {
+            System.out.println("lines are not equal");
+        }
+    }
+    public void compareToMethod(Double length1, Double length2) {
         int compare = length1.compareTo(length2);
         if (compare < 0) {
             System.out.println("Length of first line is less than length of second line");
@@ -19,6 +20,7 @@ public class LineComparison {
             System.out.println("Both the lines are equal");
         }
     }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the co-ordinates for length of first line");
@@ -40,6 +42,16 @@ public class LineComparison {
         int x4 = sc.nextInt();
         System.out.print("y4 : ");
         int y4 = sc.nextInt();
-        checkComparison(x1, y1, x2, y2, x3, y3, x4, y4);
+
+        double length1 = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+        System.out.println("Length Of First Line : " + length1);
+
+        double length2 = Math.sqrt((x4 - x3) * (x4 - x3) + (y4 - y3) * (y4 - y3));
+        System.out.println("Length Of Second Line : " + length2);
+
+        LineComparison obj = new LineComparison();
+
+        obj.equalsMethod(length1, length2);
+        obj.compareToMethod(length1, length2);
     }
 }
